@@ -1,15 +1,18 @@
 import { useEffect } from 'react'
+import { SafeAreaLayout } from './components/SafeAreaLayout'
 import { Bluerage } from './Bluerage'
 
 function App() {
   useEffect(() => {
     Bluerage.init()
   }, [])
-  
+
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <p>Lets make it fun!</p>
-    </div>
+    <SafeAreaLayout>
+      <div className="h-full flex items-center justify-center">
+        <h1 className="text-2xl font-bold">My awesome mini app</h1>
+      </div>
+    </SafeAreaLayout>
   )
 }
 
