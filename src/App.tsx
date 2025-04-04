@@ -1,6 +1,10 @@
 import { useEffect } from 'react'
 import { SafeAreaLayout } from './components/SafeAreaLayout'
 import { Bluerage } from './Bluerage'
+import { IonApp, IonRouterOutlet } from '@ionic/react'
+import { IonReactRouter } from '@ionic/react-router'
+import { Route } from 'react-router-dom'
+import { Home } from './pages/Home'
 
 function App() {
   useEffect(() => {
@@ -9,9 +13,13 @@ function App() {
 
   return (
     <SafeAreaLayout>
-      <div className="h-full flex items-center justify-center">
-        <h1 className="text-2xl font-bold">My awesome mini app</h1>
-      </div>
+      <IonApp>
+        <IonReactRouter>
+          <IonRouterOutlet>
+            <Route path="/" exact component={Home} />
+          </IonRouterOutlet>
+        </IonReactRouter>
+      </IonApp>
     </SafeAreaLayout>
   )
 }
