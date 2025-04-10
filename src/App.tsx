@@ -1,6 +1,9 @@
 import { useEffect } from 'react'
 import { SafeAreaLayout } from './components/SafeAreaLayout'
 import { Bluerage } from './Bluerage'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Index from "./pages/Index";
+import NotFound from "./pages/NotFound";
 
 function App() {
   useEffect(() => {
@@ -9,9 +12,13 @@ function App() {
 
   return (
     <SafeAreaLayout>
-      <div className="h-full flex items-center justify-center">
-        <h1 className="text-2xl font-bold">My awesome mini app</h1>
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
     </SafeAreaLayout>
   )
 }
