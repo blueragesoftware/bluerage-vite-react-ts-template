@@ -1,7 +1,7 @@
 import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
 
-export default ({ mode }) => {
+export default ({ mode }: { mode: string }) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
 
   return defineConfig({
@@ -12,7 +12,7 @@ export default ({ mode }) => {
     server: {
       port: 3000,
       host: true, // Listen on all IPv4 and IPv6 addresses
-      allowedHosts: [process.env.APP_DOMAIN],
+      // allowedHosts: [process.env.APP_DOMAIN!],
     },
     preview: {
       port: 3000,
@@ -20,6 +20,7 @@ export default ({ mode }) => {
       headers: {
         "Access-Control-Allow-Origin": "*",
       },
+      // allowedHosts: [process.env.APP_DOMAIN!],
     },
   });
 };
