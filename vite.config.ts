@@ -12,7 +12,7 @@ export default ({ mode }: { mode: string }) => {
     server: {
       port: 3000,
       host: true, // Listen on all IPv4 and IPv6 addresses
-      // allowedHosts: [process.env.APP_DOMAIN!],
+      allowedHosts: [process.env.APP_DOMAIN!],
     },
     preview: {
       port: 3000,
@@ -20,7 +20,7 @@ export default ({ mode }: { mode: string }) => {
       headers: {
         "Access-Control-Allow-Origin": "*",
       },
-      // allowedHosts: [process.env.APP_DOMAIN!],
+      allowedHosts: [process.env.APP_DOMAIN!],
     },
   });
 };
